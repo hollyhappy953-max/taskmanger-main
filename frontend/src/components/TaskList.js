@@ -1,57 +1,95 @@
+
+
 // frontend/src/components/TaskList.js
 import React from 'react';
+import {
+  Box,
+  Button,
+  Heading,
+  Text,
+  VStack,
+  HStack,
+  Badge
+} from '@chakra-ui/react';
 
-function TaskList({ tasks, onDeleteTask }) {
+function TaskList({ tasks, onUpdateTask, onDeleteTask }) {
+
   if (!tasks || tasks.length === 0) {
     return (
-      <div>
-        <h3>Task List</h3>
-        <p>Your tasks will appear here</p>
-      </div>
+      <Box mt={6} textAlign="center">
+        <Heading size="md">Task List</Heading>
+        <Text mt={2} color="gray.500">
+          Your tasks will appear here
+        </Text>
+      </Box>
     );
   }
 
   return (
-    <div>
-      <h3>Task List ({tasks.length})</h3>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <Box mt={8}>
+      <Heading size="md" mb={4}>
+        Task List ({tasks.length})
+      </Heading>
+
+      <VStack spacing={4} align="stretch">
         {tasks.map(task => (
-          <li key={task.id} style={{ 
-            marginBottom: '15px', 
-            padding: '15px', 
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            backgroundColor: task.completed ? '#f8f9fa' : 'white'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <strong style={{ fontSize: '18px' }}>{task.title}</strong>
-                {task.completed && <span style={{ marginLeft: '10px', color: 'green' }}>✓ Completed</span>}
-              </div>
-              <button 
-                onClick={() => onDeleteTask(task.id)}
-                style={{
-                  padding: '5px 10px',
-                  backgroundColor: '#dc3545',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
+          <Box
+            key={task.id}
+            p={5}
+            borderWidth="1px"
+            borderRadius="lg"
+            boxShadow="sm"
+            bg={task.completed ? "gray.100" : "white"}
+          >
+            <HStack justify="space-between">
+
+              <Box>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                textDecoration={task.completed ? "line-through" : "none"}
+                color={task.completed ? "gray.500" : "black"}
               >
-                Delete
-              </button>
-            </div>
-            {task.description && (
-              <p style={{ marginTop: '10px', color: '#666' }}>{task.description}</p>
-            )}
-            <small style={{ color: '#999' }}>
-              Created: {new Date(task.created_at).toLocaleDateString()}
-            </small>
-          </li>
+                {task.title}
+              </Text>
+
+                {task.completed && (
+                  <Badge colorScheme="green" mt={1}>
+                    Completed
+                  </Badge>
+                )}
+
+                <Text fontSize="sm" color="gray.500" mt={1}>
+                  Created: {new Date(task.date).toLocaleDateString()}
+                </Text>
+              </Box>
+
+              <HStack>
+
+              <Button
+                colorScheme="green"
+                size="sm"
+                onClick={() => onUpdateTask(task.id)}
+                isDisabled={task.completed}
+              >
+                Complete
+              </Button>
+
+                <Button
+                  colorScheme="red"
+                  size="sm"
+                  onClick={() => onDeleteTask(task.id)}
+                >
+                  Delete
+                </Button>
+
+              </HStack>
+
+            </HStack>
+          </Box>
         ))}
-      </ul>
-    </div>
+      </VStack>
+    </Box>
   );
 }
 

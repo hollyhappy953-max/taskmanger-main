@@ -1,37 +1,29 @@
-// frontend/src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './components/login';
-import Dashboard from './pages/Dashboard';
 import './App.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { ChakraProvider } from '@chakra-ui/react'
 
-// Protected Route component
-const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    return <Navigate to="/login" />;
-  }
-  return children;
-};
+import { AuthProvider } from './context/useAuth';
+
+import Login from './routes/login';
+import Home from './routes/home';
+import Register from './routes/register';
+
+import Layout from './components/layout';
+import PrivateRoute from './components/private_route';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route 
-            path="/dashboard" 
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            } 
-          />
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </div>
-    </Router>
+    <ChakraProvider>
+        <Router>
+          <AuthProvider>
+              <Routes>
+                <Route element={<PrivateRoute><Layout><Home /></Layout></PrivateRoute>} path='/' /> 
+                <Route element={<Layout><Login /></Layout>} path='/login' /> 
+                <Route element={<Layout><Register /></Layout>} path='/register' /> 
+              </Routes>
+          </AuthProvider>
+        </Router>
+    </ChakraProvider>
   );
 }
 
