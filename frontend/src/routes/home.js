@@ -81,7 +81,7 @@ const updateTask = async (id) => {
       <h2>Task Manager Dashboard</h2>
       <TaskForm onTaskAdded={addTask} />
       <TaskList tasks={tasks} onUpdateTask={updateTask} onDeleteTask={handleDeleteTask} />
-      <Button onClick={handleLogout}  color="red">Logout</Button>
+      <Button onClick={handleLogout}  color="yellow">Logout</Button>
     </VStack>
   );
 }
