@@ -29,7 +29,7 @@ const Login = () => {
 
     return (
         <VStack minH='515px' w='77%' maxW='415px' justifyContent='start' alignItems='start'>
-            <Text mb='20px' color='gray.700' fontSize='44px' fontWeight='bold'>Login</Text>
+            <Text mb='21px' color='gray.700' fontSize='44px' fontWeight='bold'>Login</Text>
             <FormControl mb='20px'>
                 <FormLabel>Usernames</FormLabel>
                 <Input bg='white' onChange={(e) => setUsername(e.target.value)} value={username} type='email' placeholder='Your username is here' />
