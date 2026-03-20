@@ -59,7 +59,7 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask }) {
                   </Badge>
                 )}
 
-                <Text fontSize="sm" color="gray.500" mt={1}>
+                <Text fontSize="sm" color="red.500" mt={1}>
                   Created: {new Date(task.date).toLocaleDateString()}
                 </Text>
               </Box>

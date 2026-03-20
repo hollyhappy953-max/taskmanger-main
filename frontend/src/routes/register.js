@@ -40,7 +40,7 @@ const Register = () => {
                 <FormLabel>Email</FormLabel>
                 <Input  bg='white' onChange={(e) => setEmail(e.target.value)} value={email} type='email' placeholder='Your email is here' />
             </FormControl>
-            <FormControl mb='20px'>
+            <FormControl mb='21px'>
                 <FormLabel>Password</FormLabel>
                 <Input  bg='white' onChange={(e) => setPassword(e.target.value)} value={password} type='password' placeholder='Your password is here' />
             </FormControl>

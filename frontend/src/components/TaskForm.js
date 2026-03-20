@@ -50,7 +50,7 @@ function TaskForm({ onTaskAdded }) {
       borderWidth="1px"
       borderRadius="lg"
       boxShadow="md"
-      maxW="500px"
+      maxW="540px"
       mx="auto"
       mt={6}
     >
@@ -62,7 +62,7 @@ function TaskForm({ onTaskAdded }) {
         <VStack spacing={4}>
 
           <FormControl isRequired>
-            <FormLabel>Task Title</FormLabel>
+            <FormLabel>Task Titles</FormLabel>
             <Input
               placeholder="Enter task title"
               value={title}
