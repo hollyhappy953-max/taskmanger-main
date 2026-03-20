@@ -28,18 +28,18 @@ const Login = () => {
     }
 
     return (
-        <VStack minH='500px' w='75%' maxW='400px' justifyContent='start' alignItems='start'>
+        <VStack minH='515px' w='75%' maxW='400px' justifyContent='start' alignItems='start'>
             <Text mb='20px' color='gray.700' fontSize='44px' fontWeight='bold'>Login</Text>
             <FormControl mb='20px'>
-                <FormLabel>Username</FormLabel>
-                <Input bg='white' onChange={(e) => setUsername(e.target.value)} value={username} type='email' placeholder='Your username here' />
+                <FormLabel>Usernames</FormLabel>
+                <Input bg='white' onChange={(e) => setUsername(e.target.value)} value={username} type='email' placeholder='Your username is here' />
             </FormControl>
             <FormControl>
                 <FormLabel>Password</FormLabel>
-                <Input  bg='white' onChange={(e) => setPassword(e.target.value)} value={password} type='password' placeholder='Your password here' />
+                <Input  bg='white' onChange={(e) => setPassword(e.target.value)} value={password} type='password' placeholder='Your password is here' />
             </FormControl>
             <Button mb='10px' colorScheme='green' mt='20px' w='100%' onClick={handleLogin}>Login</Button>
-            <Text onClick={handleNavigate} cursor='pointer' color='gray.600' fontSize='14px'>Don't have an account? Sign up</Text>
+            <Text onClick={handleNavigate} cursor='pointer' color='red.600' fontSize='14px'>Don't have any account? Sign up</Text>
         </VStack>
     )
 }

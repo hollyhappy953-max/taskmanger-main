@@ -30,26 +30,26 @@ const Register = () => {
     }
 
     return (
-        <VStack minH='500px' w='70%' maxW='400px' justifyContent='start' alignItems='start'>
+        <VStack minH='520px' w='70%' maxW='400px' justifyContent='start' alignItems='start'>
             <Text mb='20px' color='gray.700' fontSize='44px' fontWeight='bold'>Register</Text>
             <FormControl mb='20px'>
-                <FormLabel>Username</FormLabel>
-                <Input bg='white' onChange={(e) => setUsername(e.target.value)} value={username} type='text' placeholder='Your username here' />
+                <FormLabel>Usernames</FormLabel>
+                <Input bg='white' onChange={(e) => setUsername(e.target.value)} value={username} type='text' placeholder='Your username is here' />
             </FormControl>
             <FormControl mb='20px'>
                 <FormLabel>Email</FormLabel>
-                <Input  bg='white' onChange={(e) => setEmail(e.target.value)} value={email} type='email' placeholder='Your email here' />
+                <Input  bg='white' onChange={(e) => setEmail(e.target.value)} value={email} type='email' placeholder='Your email is here' />
             </FormControl>
             <FormControl mb='20px'>
                 <FormLabel>Password</FormLabel>
-                <Input  bg='white' onChange={(e) => setPassword(e.target.value)} value={password} type='password' placeholder='Your password here' />
+                <Input  bg='white' onChange={(e) => setPassword(e.target.value)} value={password} type='password' placeholder='Your password is here' />
             </FormControl>
             <FormControl>
                 <FormLabel>Confirm Password</FormLabel>
                 <Input bg='white' onChange={(e) => setPasswordConfirm(e.target.value)} value={passwordConfirm} type='password' placeholder='Confirm password here' />
             </FormControl>
             <Button mb='10px' colorScheme='green' mt='20px' w='100%' onClick={handleLogin}>Register</Button>
-            <Text onClick={handleNavigate} cursor='pointer' color='gray.600' fontSize='14px'>Have an account? Sign up</Text>
+            <Text onClick={handleNavigate} cursor='pointer' color='red.600' fontSize='14px'>Have an account? Sign up</Text>
         </VStack>
     )
 }
